@@ -1,0 +1,24 @@
+<style type="text/css" href="customers-list.component.css"></style>
+<h1>Resource</h1>
+
+
+<table class="table table-bordered table-hover" style=" border: 1px solid #1C6EA4; background-color:#0000ff3b">
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let customer of customers | async" ng-class-even="'info'" ng-class-odd="'success'">
+    <td>{{customer.name}}</td>
+    <td>{{customer.age}}</td>
+    <td>
+      <customer-details [customer]='customer'></customer-details>
+    </td>
+  </tr>
+</table>
+
+
+
+<div>
+  <button type="button" class="button btn-danger" (click)='deleteCustomers()'>Delete All</button>
+</div>
